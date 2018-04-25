@@ -1,17 +1,17 @@
-#Exercice : Carrousel maison:
+# Exercice : Carrousel maison:
 
 
-- Sélectionnez 5 belles images sur Unsplash
-- Créez un carrousel sur une page vierge pour les présenter (pas de préfabriqué, ni Bootstrap, ni autre)
+- SÃ©lectionnez 5 belles images sur Unsplash
+- CrÃ©ez un carrousel sur une page vierge pour les prÃ©senter (pas de prÃ©fabriquÃ©, ni Bootstrap, ni autre)
 
 
-         Le carrousel doit être actionnable des 4 manières suivantes :
-
- 
-  - au clic sur les flèches de chaque côté du slide en cours
+         Le carrousel doit Ãªtre actionnable des 4 maniÃ¨res suivantes :
 
  
-  - au clic sur les petits boutons qui représentent l'ensemble des slides
+  - au clic sur les flÃ¨ches de chaque cÃ´tÃ© du slide en cours
+
+ 
+  - au clic sur les petits boutons qui reprÃ©sentent l'ensemble des slides
 
  
   - en appuyant sur gauche et droite

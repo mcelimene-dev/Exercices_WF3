@@ -1,0 +1,196 @@
+@font-face {
+	font-family: 'SourceSansPro-Regular';
+	src: url('../police/SourceSansPro-Regular.ttf');
+}
+
+* {
+	font-family: 'SourceSansPro-Regular';
+	}
+	
+html { 
+  margin-left: 25%;
+  margin-right: 25%;
+  padding:0;
+  background: url("../images/fond.jpg") no-repeat center fixed; 
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+}
+
+h1 {
+	text-align: center;
+	color: #191970;
+	font-size: 2em;
+	text-shadow: 2px 2px 2px black;
+}
+
+h2 {
+	font-size: 1.5em;
+	color: #483D8B;
+	text-decoration: underline;
+}
+
+p, ul, dt, dd {
+	color: #696969;
+	font-size: 1.1em;
+}
+
+.motCle {
+	color: #4682B4;
+	font-size: 1.1em;
+}
+
+.legende {
+	color: #808080;
+}
+
+.exemple {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.logo {
+	margin-left: 0px;
+	margin-right: 0px;
+	text-align: center;
+}
+
+#logoHTML {
+	width: 20%;
+
+}
+
+#logoHTTP {
+	width: 30%
+}
+
+#exempleURL {
+	width: 30%;
+}
+
+#logoCSS {
+	width: 15%;
+}
+
+#logoDNS {
+
+	width: 20%;
+}
+/* MENU DEROULANT */
+body {
+	margin: 0px;
+	padding: 0px;}
+	
+ .lien{
+	text-decoration: none;
+	list-style-type: none;
+	display: inline;
+	}
+ 
+.submenu{
+	display: none;
+	}
+ 
+ ul:hover ul{
+    display: block;
+}
+ 
+.menu{
+	background-color: #2d2e35;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+    border: 2px white solid;
+    border-radius: 10px;
+    text-decoration: none;
+	list-style-type: none;
+	}
+ 
+li a {
+	text-decoration: none;
+	padding: 0px 0px;
+	}
+ 
+ ul{
+	margin: 10px;
+	padding: 10px;
+	}
+ 
+ul>li>a:hover{
+	background-color: #495f65;
+	color: white;
+	}
+	
+.submenu li{
+	border-bottom: 1px solid #CCC;
+	}
+	
+.submenu li a{
+	padding: 0px 0px;
+	color: #222538;
+	width: 15%;
+	text-align: center;
+	color: white;
+	}
+	
+.divMenu{
+	height: 85px;
+}
+
+nav a{
+	display: inline-block;
+	text-decoration: none;
+	}
+	
+nav>ul>li>a{
+	padding: 20px 30px;
+	}
+
+
+
+
+#html{
+	width: 15%;
+	float: right;
+	margin-right: 50px;
+	margin-top: 5px;
+	}
+
+#http{
+	width: 25%;
+	float: right;
+	margin-right: 50px;
+	margin-top: 10px;
+	}
+	
+#url{
+	width: 15%;
+	float: right;
+	margin-right: 50px;
+	margin-top: 5px;
+	}
+	
+#dns{
+	width: 15%;
+	float: right;
+	margin-right: 50px;
+	margin-top: 5px;
+	}
+
+#css{
+	width: 10%;
+	float: right;
+	margin-right: 50px;
+	margin-top: 5px;
+	}	
+.article{
+	background-color: white;
+	height: 150px;
+	padding: 15px;
+}
+
+
+article>p{
+	width: 50%;
+	}
+
+

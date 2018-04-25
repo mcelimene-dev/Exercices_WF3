@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TRELLO</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+		<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+		<style>
+			body{
+				font-family: 'Raleway', sans-serif;
+			}
+			header, section, form {
+				margin: 40px 0;
+			}
+			section{
+				height: 100%;
+			}
+			input, textarea, #ajoutTache {
+				height: 40px;
+			}
+			#ajoutTache {
+				width: 80%;
+			}
+			.colonne-extremite{
+				border-left: 2px solid black;
+				border-right: 2px solid black;
+			}
+			.card-body {
+				padding: 0;
+			}
+			ul{
+				list-style-type: none;
+				padding-left: 0;
+				height: 100%;
+			}
+			li {
+				margin-bottom: 20px;
+			}
+
+			.carte {
+				padding: 10px;
+			}
+			#aFaire .carte {
+				border-color: #dc3545;
+			}
+			#aFaire .card-footer {
+				background-color: rgba(220, 53, 59, 0.03);
+ 				border-top: 1px solid rgba(220, 23, 59, 0.125);
+			}
+			#enCours .carte {
+				border-color: #ffc107;
+			}
+			#enCours .card-footer {
+				background-color: rgba(255, 193, 7, 0.03);
+ 				border-top: 1px solid rgba(225, 193, 7, 0.125);
+			}
+			#terminer .carte {
+				border-color: #28a745;
+			}
+			#terminer .card-footer {
+				background-color: rgba(40, 167, 69, 0.03);
+ 				border-top: 1px solid rgba(40, 167, 69, 0.125);
+			}
+			svg{
+				color: rgb(220, 53, 59);
+			}
+			.delete{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1 class="text-center text-uppercase">Trello</h1>
+		</header>
+		<div class="container">
+			<section class="row">
+				<div class="col-md-12">
+					<form>
+					  <div class="row">
+					    <div class="col text-center">
+					      <input type="text" name="nomTache" id="nomTache" class="form-control input" placeholder="Tâche à effectuer">
+					    </div>
+					    <div class="col text-center">
+					      <input type="date" class="form-control input" name="dateLimite" id="dateLimite" placeholder="date: dd/mm/yy">
+					    </div>
+					    <div class="col text-center">
+					    	<button type="button" id="ajoutTache" class="btn btn-outline-dark">Ajouter</button>
+					    </div>
+					  </div>
+					</form>
+				</div>
+			</section>
+
+
+
+			<section class="row contenu">
+				<div class="col-md-4 text-center colonne">
+					<h3>A faire</h3>
+					<ul id="aFaire" class="taches"></ul>
+				</div>
+				<div class="col-md-4 text-center colonne">
+					<h3>En cours</h3>
+					<ul id="enCours" class="taches"></ul>
+				</div>
+				<div class="col-md-4 text-center colonne">
+					<h3>Terminées</h3>
+					<ul id="terminer" class="taches"></ul>
+				</div>
+			</section>
+		</div>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/trello.js"></script>
+
+		<!--<script>
+			$(function(){
+				$(".input").savy('load');
+			});
+		</script>-->
+	</body>
+
+</html>

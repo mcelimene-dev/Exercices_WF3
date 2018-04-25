@@ -1,0 +1,81 @@
+body {
+	margin: 0;
+	font-family: "Arial";
+	text-align: center;
+}
+
+nav {
+	background-color: #A0522D;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	text-align: center;
+}
+
+
+nav>ul>li {
+	display: inline-block;
+	list-style-type: none;
+	margin: 20px;
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+a:hover {
+	color:white;
+}
+
+#logo {
+	margin: 0;
+	text-align: center;
+}
+
+#logo>img {
+	width: 30%;
+}
+
+main {
+	margin-top: 400px;
+}
+
+main>ul>li {
+	list-style-type: none;
+	border: 1px solid black;
+	height: 400px;
+	width: 70%;
+	margin-top: 20px;
+	text-align:center;
+}
+
+h2 {
+	text-align: center;
+	color: #A0522D;
+}
+
+blockquote {
+	quotes: "«\00A0" "\00A0»";
+	font-style: italic;
+}
+
+#personnages img {
+	width: 30%;
+	float: left;
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+}
+
+#personnages p {
+	width: 70%;
+	margin-left: 300px;
+}
+
+
+
+
+

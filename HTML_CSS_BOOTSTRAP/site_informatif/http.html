@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Présentation HTTP</title>
+		<link rel="stylesheet" href="css/style.css">
+		<meta charset="utf-8">
+	</head>
+	
+	<body>
+		<header>
+			<nav>
+				<div class="divMenu">
+					<ul>
+						<li class="menu">MENU</br>
+							<ul class="submenu">
+								<li class="lien"><a href="index.html">Accueil</a></li>
+								<li class="lien"><a href="html.html">HTML</a></li>
+								<li class="lien"><a href="http.html">HTTP</a></li>
+								<li class="lien"><a href="url.html">URL</a></li>
+								<li class="lien"><a href="pagedns.html">DNS</a></li>
+								<li class="lien"><a href="pagecss.html">CSS</a></li>
+							</ul>
+						</li>                    
+					</ul>
+				</div>	
+			</nav>
+		</header>
+		
+		<main>
+			<article>
+				<h1>HTTP (HyperText Transfer Protocol)</h1>
+				<figure class="logo"><img src="images/HTTP_logo.png" alt="Logo HTTP" id="logoHTTP"></figure>
+				<div id="description">
+					<h2>Description</h2>
+					<p>HTTP est un <span class="motCle">protocole de communication client-serveur</span> développé pour la W3C.<br/>
+					HTTPS est la variante sécurisée pour l'usage <span class="motCle">SSL</span> ou <span>TLS</span>.
+					Les clients les plus connus sont les navigateurs Web.<br/>
+					<strong>Inventeur : </strong>Tim Berners-Lee<br/>
+					<strong>Année :</strong> 1990<br/></p>
+				</div>
+				<div id="organisation">
+					<h2>Organisation</h2>
+					<p>
+						<figure>
+							<img src="images/schemaHTTP.gif" alt="Requete HTTP">
+						<figcaption class="legende"><em>schéma d'une requête HTTP</em></figcaption>
+						</figure>
+						L'ordinateur utilise le navigateur pour envoyer une <span class="motCle">requête</span> à un serveur web. Cette requête demande un document (page HTML, fichier CSS).
+						Le serveur cherche les informations, puis <span class="motCle">interprête</span> le résultat pour finalement envoyer une réponse.<br/>
+						Cette réponse contient les entêtes du protocole HTTP et le contenu demandé.
+					</p>
+				</div>
+			</article>
+		</main>
+	</body>
+</html>

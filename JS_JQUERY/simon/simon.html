@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simon</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body {
+			font-family: Ubuntu;
+		}
+		main#playground {
+			margin: 15px auto;
+			width: 45vw;
+			text-align: center;
+		}
+
+		p#indicateur-niveau {
+			position: absolute;
+			left: 10px;
+			top: 0;
+			font-size: 10vh;
+			line-height: 10vh;
+			margin: 3vh 0;
+			
+		}
+		div.bouton {
+			width: 15vw;
+			height: 15vw;
+			min-height: 50px;
+			min-width: 50px;
+			display: inline-block;
+			box-sizing: border-box;
+			border: 0 solid #fff;
+			transition: border-width .1s;
+		}
+
+		div.bouton.appuye {
+			border-width: 3vw;
+		}
+
+		div#bouton-rouge {
+			background-color: #cc2222;
+		}
+
+		div#bouton-vert {
+			background-color: #22cc22;
+		}
+
+		div#bouton-bleu {
+			background-color: #2222cc;
+		}
+
+		div#bouton-jaune {
+			background-color: #cccc22;
+		}
+
+		p#message {
+			background-color: #fff;
+			position: absolute;
+			top: 0;
+			left: 25vw;
+			width: 50vw;
+			text-align: center;
+			height: 16vh;
+			line-height: 16vh;
+			font-size: 3em;
+			display: none;
+			margin: 0;
+		}
+
+		button#go {
+			display: block;
+			width: 15vw;
+			font-size: 2em;
+			height: 10vh;
+			background-color: #ccc;
+			border: none;
+			margin: 3vh auto;
+		}
+		
+		table#leaderboard-table {
+			position: absolute;
+			right: 10px;
+			top: 0;
+			margin-top: 3vh;
+		}
+	</style>
+</head>
+<body>
+	<p id="indicateur-niveau">Niveau <span id="niveau">0</span></p>
+	<button type="button" id="go">Démarrer</button>
+	<main id="playground">
+		<div id="bouton-rouge" class="bouton"></div>
+		<div id="bouton-vert" class="bouton"></div>
+		<div id="bouton-bleu" class="bouton"></div>
+		<div id="bouton-jaune" class="bouton"></div>
+	</main>
+	<p id="message"></p>
+	<table id="leaderboard-table">
+		<thead>
+			<tr>
+				<th>Meilleurs scores</th>
+			</tr>
+		</thead>
+		<tbody id="leaderboard">
+		</tbody>
+	</table>
+	<audio id="audio-rouge" preload="auto">
+		<source src="sons/rouge.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="audio-vert" preload="auto">
+		<source src="sons/vert.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="audio-bleu" preload="auto">
+		<source src="sons/bleu.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="audio-jaune" preload="auto">
+		<source src="sons/jaune.mp3" type="audio/mpeg">
+	</audio>
+	<script src="jquery.min.js"></script>
+	<script>
+		// 0. définir variables et constantes
+		const $BOUTONS = jQuery('.bouton');
+		const DIFFICULTE_DEPART = 3;
+		const TEMPS_MAX_REPONSE = 5000;
+		let niveau = 0;
+		let scores = [];
+		
+		// 1. animer les boutons
+		$BOUTONS.mousedown(function() {
+			allumerBouton(jQuery(this));
+		}).mouseup(function() {
+			eteindreBouton(jQuery(this));
+		});
+		
+		function allumerBouton($bouton) {
+			$bouton.addClass("appuye");
+			let couleur = $bouton.attr('id').split('-')[1];
+			let aud = jQuery('#audio-' + couleur).get(0);
+			aud.currentTime = 0;
+			aud.play();
+		}
+		
+		function eteindreBouton($bouton) {
+			$bouton.removeClass("appuye");
+		}
+		
+		function augmenterNiveau() {
+			niveau++;
+			jQuery("span#niveau").text(niveau);
+		}
+		
+		// 2. affichage des messages
+		function afficherMessage(message) {
+			jQuery("#message").text(message).fadeIn(200);
+			setTimeout(function() {
+				jQuery("#message").fadeOut(400);
+			}, 1500);
+		}
+		
+		// 3. le déroulement de la partie
+		function lancerPartie() {
+			augmenterNiveau();
+			jQuery("#go").css({'visibility': 'hidden'});
+			afficherMessage("C'est parti");
+			let sequence = [];
+			for (let i = 0; i < DIFFICULTE_DEPART; i++) {
+				sequence.push($BOUTONS.eq(Math.floor(Math.random() * $BOUTONS.length)));
+			}
+			jouerSequence(sequence);
+		}
+		
+		function afficherScores() {
+			scores.sort(function(a, b) {
+				return a.niveau - b.niveau;
+			}).reverse();
+			let $tableau = jQuery("#leaderboard");
+			$tableau.html("");
+			for (let i = 0; i < scores.length; i++) {
+				$tableau.append("<tr><td>" + scores[i].niveau + "</td><td>" + scores[i].nom + "</td></tr>");
+			}
+		}
+		
+		// 3.1. jouer une partie de la séquence
+		function jouerSequence(seq) {
+			seq.forEach(function($b, o) {
+				setTimeout(function() {
+					allumerBouton($b);
+				}, o * 1000);
+				setTimeout(function() {
+					eteindreBouton($b);
+				}, 300 + o * 1000);
+			});
+			setTimeout(function() {
+				tourDuJoueur(seq);
+			}, 300 + (seq.length - 1) * 1000);
+		}
+		
+		function tourDuJoueur(seq) {
+			afficherMessage("A toi de jouer !");
+			
+			let progression = 0;
+			
+			let to = setTimeout(gameOver, TEMPS_MAX_REPONSE, true);
+			$BOUTONS.on('click', function() {
+				clearTimeout(to);
+				if (jQuery(this).is(seq[progression])) {
+					// ici, c'est le bon bouton qui est cliqué
+					progression++;
+					if (progression == seq.length) {
+						tourDeSimon(seq);
+					} else {
+						to = setTimeout(gameOver, TEMPS_MAX_REPONSE, true);
+					}
+				} else {
+					gameOver();
+				}
+			});
+		}
+		
+		function tourDeSimon(seq) {
+			augmenterNiveau();
+			$BOUTONS.off('click');
+			seq.push($BOUTONS.eq(Math.floor(Math.random() * $BOUTONS.length)));
+			afficherMessage("Mémorisez la séquence");
+			jouerSequence(seq);
+		}
+		
+		function gameOver(tempsEcoule = false) {
+			scores.push({'niveau': niveau, 'nom' : prompt('Entrez votre nom')});
+			afficherScores();
+			niveau = -1;
+			augmenterNiveau();
+			if (tempsEcoule) {
+				afficherMessage("Perdu, vous avez mis trop de temps");
+			} else {
+				afficherMessage("Perdu, vous êtes nul");
+			}
+			$BOUTONS.off('click');
+			jQuery("#go").css({'visibility':'visible'});
+		}
+		
+		jQuery("#go").click(lancerPartie);
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

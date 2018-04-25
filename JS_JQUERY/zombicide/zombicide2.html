@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Zombicide</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/zombicide2.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  </head>
+  <body>
+    <header>
+      <h1><img src="img/zombicide-logo.png" alt="Zombicide"/></h1>
+      <nav>
+        <ul>
+          <li><a href="#jane">Jane</a></li>
+          <li><a href="#joe">Joe</a></li>
+          <li><a href="#louise">Louise</a></li>
+          <li><a href="#travis">Travis</a></li>
+          </ul>
+      </nav>
+    </header>
+    <main>
+      <article id="jane">
+        <h2>Jane</h2>
+         <img src="img/fJane.jpg" alt="Jane"/>
+         <blockquote>
+          <p>Du contrôle anti émeute ? J’vais t’en donner, moi, du contrôle anti émeute !</p>
+         </blockquote>
+         <p class="description">Jane est la gâchette la plus rapide de la ville. Elle conserve son côté cool et son humour au second degré même dans les pires situations. La connaître, c’est l’aimer !</p>
+        </article>
+        <article id="joe">
+          <h2>Joe</h2>
+          <img src="img/fJoe.jpg" alt="Joe"/>
+          <blockquote>
+            <p>Recycler pour sauver la planète prend un nouveau sens, pas vrai ?</p>
+          </blockquote>
+          <p class="description">Joe sait comment transformer les trucs les plus bizarres en quelque chose d’utile, voire de mortel. Avant les zombies, il était considéré comme un crétin. Aujourd’hui, tout le monde a réalisé que c’est un génie !</p>
+        </article>
+        <article id="louise">
+          <h2>Louise</h2>
+          <img src="img/fLouise.jpg" alt="Louise"/>
+          <blockquote>
+            <p>Toujours avoir les bons outils pour faire le sale boulot.</p>
+          </blockquote>
+          <p class="description">Louise n’est pas le genre de fille à se cacher au fond d’un abri. Elle a parcouru la ville infestée de zombies en de nombreuses occasions et a dissimulé des armes dans les endroits les plus inattendus. Personne ne peut la prendre par surprise !</p>
+        </article>
+        <article id="travis">
+          <h2>Travis</h2>
+          <img src="img/fTravis.jpg" alt="Travis"/>
+          <blockquote>
+            <p>Précision ou puissance brute? Pourquoi choisir ? Utilisez les deux.</p>
+        </blockquote>
+        <p class="description">Travis est un homme éduqué que la vie a transformé en tueur de zombies. Du genre patient et impitoyable, il y a une chose qu’il apprécie dans l’apocalypse zombie : c’est que les gens révèlent leur vraie nature.</p>
+      </article>
+    </main>
+
+    <script>
+      // Fonction qui met en minuscule la première lettre d'une chaîne
+      /*function permiereLettreMinuscule(chaine) {
+        return chaine.charAt(0).toLowerCase() + chaine.slice(1);
+      }
+
+      let header = document.querySelector("header");
+      
+      // 1. On sélectionne les li du menu
+      document.querySelectorAll("li").forEach(function(li){
+        // 2. Quand on survole un li avec la sourie un evenement se lance
+        li.addEventListener("mouseover", function(e){
+          // 3. Création d'une variable lien qui contient le contenu de lien
+          let lien = permiereLettreMinuscule(e.target.textContent);
+          let image = "";
+          // 4. Quand le lien correspond à l'ID d'article, on ressort le chemin dans src de l'image
+           switch (lien) {
+            case "jane": 
+              image = document.querySelector("#jane > img").getAttribute("src");
+            break;
+            case "joe": 
+              image = document.querySelector("#joe > img").getAttribute("src");
+            break;
+            case "louise": 
+              image = document.querySelector("#louise > img").getAttribute("src");
+            break;
+            case "travis": 
+              image = document.querySelector("#travis > img").getAttribute("src");
+            break;
+          }
+
+          // 5. On modifie le background de header avec l'image de l'article visé
+          header.style.background = "url(" + image + ") no-repeat";
+          header.style.backgroundSize = "cover";
+
+        });
+
+        // 6. Header reprend son background initial quand on ne survole plus les liens
+        li.addEventListener("mouseout", function(){
+          header.style.background = "#5d564a";
+        });
+      }); */
+
+
+
+
+    document.querySelectorAll("nav > ul > li > a").forEach(function(aElt) {
+    aElt.onmouseenter  = function(e) {
+      // je récupère le lien
+      //new URL(url).pathname
+      articleId = new URL(e.target.href).hash;
+      //console.log("id :  "+articleId);
+      // je récupère la source de l'image
+      let imgSrc = document.querySelector(articleId+">img").getAttribute("src");
+      //console.log("img src="+imgSrc);
+      // je change le fond
+      document.querySelector("header").style.background="url("+imgSrc+") no-repeat";
+      document.querySelector("header").style.backgroundSize="cover";
+
+
+      };
+
+    aElt.onmouseleave  = function(){
+      document.querySelector("header").style.background="#5d564a";
+    }
+
+    });
+    </script>
+   </body>
+</html>
+

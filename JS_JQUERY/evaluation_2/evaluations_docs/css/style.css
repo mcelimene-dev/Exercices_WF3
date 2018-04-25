@@ -1,0 +1,145 @@
+/*********** GENERAL **********/
+html, body {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+body h1, h2, h3, header a {
+	font-family: 'Merienda', cursive;
+}
+
+/*********** EN-TETE **********/
+#enTete {
+	background-color: #061339;
+	height: 50px;
+}
+
+#enTete header {
+	padding-top: 13px;
+}
+
+#enTete header a {
+	color: #fff;
+	font-size: 1.1em;
+}
+
+#enTete header a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+/*********** BANNIERE **********/
+#banniere {
+	background: url(../img/background.jpg) #B9CDFF repeat;
+	height: 170px;
+}
+
+#banniere section {
+	padding-top: 60px;
+}
+
+#banniere h1 {
+	color: #fff;
+	text-shadow: 1px 1px 2px #000;
+	margin: 0 auto;
+}
+
+/********** CONTENU **********/
+#contenu {
+	background: #F1F1F1;
+	padding: 40px 0;
+}
+
+#contenu h3 {
+	color: #2F4073;
+	font-size: 1.5em;
+}
+
+#contenu form {
+	border: 2px solid #E5E5E5;
+	padding: 3px;
+}
+
+#contenu form label {
+	font-weight: bold;
+}
+
+#contenu form label, #contenu form select, #contenu form textarea, #contenu form button {
+	width: 100%;
+}
+
+#contenu ol li {
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+}
+
+
+#contenu h4 {
+	text-shadow: 1px 1px 2px #000;
+}
+
+/********** PRESENTATION **********/
+#presentation {
+	background: #DDDDDD;
+	padding: 40px 0;
+}
+
+#presentation h2 {
+	color: #2F4073;
+	padding-left: 15px;
+}
+
+#presentation figure #teteChat {
+	background-color: #7885A5;
+	transition: background-color 1s;
+	width: 130%;
+}
+
+
+/********** PIED DE PAGE **********/
+#piedDePage {
+	background: #061339;
+	text-align: right;
+	font-size: 1em;
+	color: #fff;
+	position: absolute;
+	bottom: 0;
+	padding-top: 7px;
+}
+
+
+/*********** MEDIA QUERIES mobile ***********/
+@media (max-width: 768px){
+	/*********** GENERAL ***********/
+	h1, h2, h3 {
+		text-align: center;
+	}
+	/*********** BANNIERE ***********/
+	#banniere section {
+		padding-top: 30px;
+	}
+
+	/*********** CONTENU ***********/
+	#contenu #inverse {
+		flex-direction: column-reverse;
+	}
+
+	#contenu h3 {
+		padding-top: 20px;
+	}
+
+	/*********** PRESENTATION ***********/
+	#presentation figure #teteChat {
+		width: 100%;
+	}
+
+	#presentation p {
+		width: 100%;
+	}
+
+	/********** PIED DE PAGE ***********/
+	#piedDePage {
+		font-size: 0.8em;
+	}
+}

@@ -1,0 +1,210 @@
+/* 
+Polices par défaut : 
+	font-family: Arial, sans-serif;
+
+Police des titres :
+	font-family: 'Courgette', cursive;
+	
+Couleurs : 
+	barre de menus : #C55394
+	hover menu : #EB43A3
+    titre h1 : #C55394
+    autres titres : #EB43A3
+	footer : #E577B5
+	noir : #333
+	blanc : #FFF
+*/
+
+/* ******************** RESET ******************** */
+html, body, header, nav, .container-fluid, figure, figcaption, ul {
+	margin: 0;
+	padding: 0;
+}
+
+.container-fluid {
+	position: relative;
+}
+
+.container {
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* ******************** GENERAL ******************** */
+body {
+	font-family: Arial, sans-serif;
+	background: url(../img/background.png) fixed;
+	position: relative;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+h2, h3 {
+	color: #EB43A3;
+}
+
+h1, h2, h3, #logo {
+	font-family: 'Courgette', cursive;
+}
+
+
+h2 i {
+	margin-right: 10px;
+}
+
+p, figcaption {
+	font-size: 0.9em;
+}
+
+footer {
+	background-color: #E577B5;
+}
+
+#content {
+	box-shadow:  1px 1px 12px #555;
+	border-radius: 2%;
+	margin-bottom: 200px;
+	padding: 50px 20px;
+	background: #FFF;
+}
+
+/* ******************** HEADER ******************** */
+header {
+	height: 20%;
+}
+header nav {
+	display: flex;
+	background-color: #C55394;
+	position: relative;
+    height: 50px;
+}
+
+header nav #logo {
+	font-size: 1.2em;
+}
+
+header nav #logo {
+	display: block;
+	color: #FFF;
+	margin-left: 20px;
+}
+
+header nav ul {
+	display: flex;
+	position: absolute;
+	right: 20px;
+	height: 100%;
+}
+
+header nav ul .item {
+	list-style-type: none;
+	margin-right: 30px;
+	text-transform: uppercase;
+	font-size: 0.9em;
+}
+
+header nav ul .item a, header nav #logo {
+	color: #FFF;
+	display: block;
+	padding: 12px 5px 5px 5px;
+}
+
+header nav ul .item:hover {
+	color: #FFF;
+	text-decoration: none;
+	background-color: #EB43A3;
+}
+
+header nav ul .item a:hover, header nav #logo:hover {
+	text-decoration: none;
+
+}
+
+/* ******************** MAIN ******************** */
+
+/* EN-TETE */
+#title {
+	height: 200px;
+	background-image: url(../img/rainbow.png);
+	background-repeat: no-repeat;
+	background-position-x: 38%;
+}
+
+#title h1{
+	color: #C55394;
+	margin: 30px auto auto;
+	font-size: 2em;
+	position: relative;
+	top: 45%;
+}
+
+/* LE PRINCIPE */
+#about p:first-child {
+	margin-top: 10px;
+}
+
+#about p:last-child {
+	margin-bottom: 80px;
+}
+
+/* NOS LICORNES */
+#unicorn figure {
+	margin: 20px 0 80px 0;
+	position: relative;
+	transform: scale(1);
+	transition: transform 0.5s linear;
+
+}
+
+#unicorn figure:hover {
+	transform: scale(1.05);
+	transition: transform 0.5s linear;
+}
+
+#unicorn figure img {
+	width: 100%;
+}
+
+#unicorn figure figcaption {
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.8);
+	color: #FFF;
+	width: 100%;
+	text-align:center;
+	padding: 5px 0 5px 0;
+}
+
+/* CONTACT */
+#contact #map {
+	height: 350px;
+	width: 500px;
+}
+
+#contact h3 {
+	font-size: 1.1em;
+}
+
+#contact form button {
+	margin-top: 5px;
+	color: #FFF;
+	background: #C55394;
+}
+
+
+/* ******************** FOOTER ******************** */
+footer {
+	position: absolute;
+	width: 100%;
+}
+
+footer p {
+	width: 100%;
+	text-align: right;
+	padding: 5px 50px 0 0;
+	color: #FFF;
+}
+

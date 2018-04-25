@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ventilateur</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		span#ventilo {
+			display: inline-block;
+			width: 2em;
+			text-align: center;
+			font-size: 8em;
+		}
+		img#souffle {
+			height: 150px;
+			visibility: hidden;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>Soufflez en appuyant sur n'importe quelle lettre</h1>
+	<img id="souffle" src="img/troll.jpg">
+	<span id="ventilo"></span>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		// les "états" du ventilo => les caractères représentant une rotation
+		const VENTILO_ETATS = ['|', '/', '-', '\\'];
+		// la vitesse de départ (! impérativement > 0)
+		let vitesse = .00000000001;
+		// pour contenir l'identifiant de timeout
+		// si on change la vitesse, le prochain timeout reste programmé avec l'ancienne vitesse...
+		// ...on l'annule donc et on en reprogramme un avec la nouvelle vitesse
+		let to;
+		
+		// la fonction qui fait évoluer l'état du ventilo
+		function tournerVentilo() {
+			// $().text(_val_) applique _val_ en guise de texte à tous les éléments visés par le sélecteur
+			jQuery("#ventilo").text(
+				// on sélectionne un élément dans le tableau VENTILO_ETATS
+				VENTILO_ETATS[
+					// $().text() sans paramètre retourne le texte présent dans le premier élément visé par le sélecteur
+					(VENTILO_ETATS.indexOf(jQuery("#ventilo").text()) + 1) % VENTILO_ETATS.length
+					// ici, on récupère le caractère actuellement présent dans le span#ventilo...
+					// ...on le recherche dans la tableau VENTILO_ETATS et on ajoute un à son indice...
+					// ...modulo la longueur du tableau, pour ne pas sortir des bornes
+				]
+			);
+			// prochaine rotation dans x millisecondes...
+			// ...x étant 1s divisée par la vitesse
+			to = setTimeout(tournerVentilo, 1000 / vitesse);
+		}
+		
+		// quand on appuie sur une touche
+		jQuery("body").keydown(function(e) {
+			// si la touche n'est pas une touche de caractère a à z
+			if (e.which < 65 || e.which > 90) {
+				return;
+			}
+			// purement graphique, on affiche le troll
+			jQuery("#souffle").css({'visibility': 'visible'});
+			// on incrémente la vitesse
+			vitesse += 1;
+			// on annule le délai avant d'appeler tournerVentilo
+			clearTimeout(to);
+			// et on l'appelle manuellement à la place
+			tournerVentilo();
+		});
+		// quand on relache la touche
+		jQuery("body").keyup(function() {
+			// on cache le troll
+			jQuery("#souffle").css({'visibility': 'hidden'});
+			// utiliser visibility plutôt que display permet de ne pas décaler l'affichage quand le troll apparait
+		});
+		// lancement initial du ventilo
+		tournerVentilo();
+		// il n'y a pas de caractère dans le span#ventilo, indexOf retournera donc -1
+		// et -1 + 1 = 0, on affiche donc le caractère VENTILO_ETATS[0] donc |
+		
+		// la vitesse baisse d'elle-même toutes les 200ms
+		setInterval(function() {
+			vitesse *= .95;
+		}, 200);
+	</script>
+</body>
+</html>

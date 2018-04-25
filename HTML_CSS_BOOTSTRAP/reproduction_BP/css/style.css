@@ -1,0 +1,79 @@
+h3 {
+	color: rgb(59,136,195);
+	border-bottom: 2px solid black;
+}
+
+.card {
+	margin: 15px 0 15px 0;
+	border: white;
+}
+
+.card-img-overlay {
+	padding: 8px 0 0 0 ;
+
+}
+
+.card-title {
+	background-color: rgba(59,136,195,0.7);
+	position: absolute;
+	top: 8px;
+	padding: 0 5px 0 5px;
+	font-size: 0.8em;
+}
+
+.card-text {
+	background-color: rgba(59,136,195,0.7);
+	font-size: 1em;
+	position: absolute;
+	bottom: 0;
+	padding: 0 5px 0 5px;
+	width: 100%;
+}
+
+.icone-nombre {
+	margin: 5px;
+}
+
+.lien {
+	margin-left: 5px;
+}
+
+.lien>a {
+	color: black;
+}
+
+.lienArticle {
+	color: white;
+}
+
+.lienArticle:hover {
+	color: white;
+}
+
+main {
+	margin-top: 300px;
+	box-shadow: 6px 6px 4px rgba(0,0,0,0.6) ;
+	border: 1px solid gray;
+}
+
+
+@media (min-width: 768px) {
+	.card-title {
+		font-size: 1.2em;
+	}
+	
+	.card-text {
+		font-size: 1.5em;
+	}
+	
+	main {
+		margin-top: 200px;
+	}
+	
+
+}
+
+hr {
+	border-top: 2px solid rgb(59,136,195);
+}
+

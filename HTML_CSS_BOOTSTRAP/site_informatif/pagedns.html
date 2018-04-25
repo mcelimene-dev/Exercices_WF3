@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<title>Présentation DNS</title>
+	</head>
+
+	<body>
+		<header>
+			<nav>
+				<div class="divMenu">
+					<ul>
+						<li class="menu">MENU</br>
+							<ul class="submenu">
+								<li class="lien"><a href="index.html">Accueil</a></li>
+								<li class="lien"><a href="html.html">HTML</a></li>
+								<li class="lien"><a href="http.html">HTTP</a></li>
+								<li class="lien"><a href="url.html">URL</a></li>
+								<li class="lien"><a href="pagedns.html">DNS</a></li>
+								<li class="lien"><a href="pagecss.html">CSS</a></li>
+							</ul>
+						</li>                    
+					</ul>
+				</div>	
+			</nav>
+		</header>
+		
+		<main>
+			<article>
+				<div id="description">
+					<h1>DNS (Domain Name System)</h1>
+					<figure class="logo">
+						<img src="images/dns.png" alt="Logo DNS" id="logoDNS">
+					</figure>
+					<p>Le Domain Name System, généralement abrégé DNS, qu'on peut traduire en <span class="motCle">« système de noms de domaine »</span>, est le service informatique distribué utilisé pour <span class="motCle">traduire les noms de domaine Internet en adresse IP</span> ou autres enregistrements.</br> 
+					À la demande de la <span class="motCle">DARPA</span> (Defense Advanced Research Projects Agency, « Agence pour les projets de recherche avancée de défense ») américaine, <span class="motCle">Jon Postel et Paul Mockapetris</span> ont conçu le « Domain Name System » en 1983 et en ont rédigé la première réalisation.</p>
+					<h2>Rôle du DNS</h2>
+					<p>Les équipements (hôtes) connectés à un réseau IP, comme Internet, possèdent une <span class="motCle">adresse IP</span> qui les identifie sur le réseau. Ces adresses sont numériques afin de faciliter leur traitement par les machines. En <span class="motCle">IPv4</span>, elles sont représentées sous la forme <span class="motCle">« xxx.xxx.xxx.xxx »</span>, où « xxx » est un nombre entre 0 et 255 (en représentation décimale). 
+					En <span class="motcle">IPv6</span>, les adresses sont représentées sous la forme <span class="motCle">« xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx »</span>, où « xxxx » représente une <span class="motCle">valeur hexadécimale</span>.
+					Pour faciliter l'accès aux hôtes sur un réseau IP, un mécanisme a été mis en place pour associer un nom à une adresse IP. Ce nom, plus simple à retenir, est appelé <span class="motCle">« nom de domaine »</span>. Résoudre un nom de domaine consiste à trouver l'adresse IP qui lui est associée.
+					En plus des adresses IP, des informations complémentaires peuvent être associées aux noms de domaines comme des enregistrements dans le contexte de la <span class="motCle">lutte contre le spam (SPF)</span>, RRSIG pour la sécurité des informations du DNS (DNSSEC) ou NAPTR pour associer des numéros de téléphone à des adresses e-mail (ENUM).</p>
+					<figure class="exemple">
+						<img src="images/schemaDNS.png" alt="Schema explicatif DNS">
+						<figcaption class="legende">Schéma explicatif DNS</figcaption>
+					</figure>			
+				</div>
+				<div id="usage">
+					<h2>Hiérarchie du DNS</h2>
+					<p>Le système des noms de domaine consiste en une hiérarchie dont le sommet est appelé <span class="motCle">la racine</span>. On représente cette dernière par un point. Dans un domaine, on peut créer un ou plusieurs <span class="motCle">sous-domaines</span> ainsi qu'une <span class="motcle">délégation</span>pour ceux-ci, c'est-à-dire une indication que les informations relatives à ce sous-domaine sont enregistrées sur <span class="motCle">un autre serveur</span>. 
+					Ces sous-domaines peuvent à leur tour déléguer des sous-domaines vers d'autres serveurs. Tous les sous-domaines ne sont pas nécessairement délégués. Les délégations créent des <span class="motCle">zones</span>, c'est-à-dire des ensembles de domaines et leurs sous-domaines non délégués qui sont configurés sur un serveur déterminé. Les zones sont souvent confondues avec les domaines.</br>
+					<img class="exemple" src="images/dns1.png" alt="Schéma de la hiérarchie du DNS"></p>
+				</div>
+			</article>
+		</main>
+	</body>
+</html>
